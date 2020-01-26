@@ -45,13 +45,13 @@ const HabitForm = ({onSubmit, initialValues}) => {
 
     const createFormData = () => {
         let formdata = new FormData();
-        formdata.append("habit-title", title);
-        formdata.append("habit-description", description);
-        formdata.append("habit-cue", cue);
-        formdata.append("habit-craving", craving);
-        formdata.append("habit-response", response);
-        formdata.append("habit-reward", reward);
-        formdata.append("habit-image", {uri: image.uri, name: 'image.jpg', type: 'image/jpeg'});
+        formdata.append("title", title);
+        formdata.append("description", description);
+        formdata.append("cue", cue);
+        formdata.append("craving", craving);
+        formdata.append("response", response);
+        formdata.append("reward", reward);
+        formdata.append("image", {uri: image.uri, name: 'image.jpg', type: 'image/jpeg'});
 
         return formdata;
     };

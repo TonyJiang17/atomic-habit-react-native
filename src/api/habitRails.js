@@ -3,7 +3,7 @@ import {AsyncStorage} from 'react-native';
 
 
 const instance = axios.create({
-    baseURL: 'http://ea0edc85.ngrok.io/api/v1'
+    baseURL: 'http://75840ceb.ngrok.io/api/v1'
 });
 
 //automatic authentication
