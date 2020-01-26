@@ -9,7 +9,7 @@ import {AsyncStorage} from 'react-native';
 
 
 
-const AccountScreen = () => {
+const AccountScreen = ({navigation}) => {
     const {signout} = useContext(AuthContext);
 
     // clearAsyncStorage = async() => {
@@ -24,6 +24,9 @@ const AccountScreen = () => {
             <Text style = {{fontSize:40, marginBottom: 20, marginLeft: 15}} >AccountScreen</Text>
             <Spacer>
                 <Button title = "Sign out" onPress={signout}/>
+            </Spacer>
+            <Spacer>
+                <Button title = "2 PhotoScreen" onPress={() => navigation.navigate('Photo')}/>
             </Spacer>
         </SafeAreaView>
     );

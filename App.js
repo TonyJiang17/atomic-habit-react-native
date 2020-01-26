@@ -12,6 +12,7 @@ import SigninScreen from './src/screens/SigninScreen';
 import {Provider as AuthProvider} from './src/context/AuthContext'; 
 import {setNavigator} from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import PhotoScreen from './src/screens/PhotoScreen';
 
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen,
@@ -25,6 +26,7 @@ const switchNavigator = createSwitchNavigator({
     Create: CreateScreen,
     Edit: EditScreen,
     Account: AccountScreen,
+    Photo: PhotoScreen
   },{
     defaultNavigationOptions: {
       title: 'Habits'
