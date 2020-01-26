@@ -10,11 +10,18 @@ const EditScreen = ({navigation}) => {
 
     return (
         <HabitForm 
-            onSubmit={(title, description, cue, craving, response, reward) => {
-                editHabit(habit.id, title, description, cue, craving, response, reward,
+            // onSubmit={(title, description, cue, craving, response, reward) => {
+            //     editHabit(habit.id, title, description, cue, craving, response, reward,
+            //         () => {navigation.pop(); //just make the app go back to the previous screen
+            //     });
+            // }}
+
+            onSubmit={(formdata) => {
+                editHabit(habit.id, formdata,
                     () => {navigation.pop(); //just make the app go back to the previous screen
                 });
             }}
+
             initialValues = {{title: habit.title, 
                             description: habit.description,
                             cue: habit.cue,

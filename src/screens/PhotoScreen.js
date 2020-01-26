@@ -39,14 +39,7 @@ export default class PhotoScreen extends React.Component {
           this.setState({ image: result.uri });
         }
       };
-
-    // handleChoosePhoto = () => {
-    //     const options = {};
-    //     ImagePicker.launchImageLibrary(options, response => {
-    //         console.log("response", response);
-    //     });
-    // };
-
+      
     render() {
         let { image } = this.state;
     

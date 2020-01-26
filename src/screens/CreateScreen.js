@@ -9,8 +9,12 @@ const CreateScreen = ({navigation}) => {
     const {addHabit} = useContext(Context);
     return (
         //using BlogPostForm to render our form 
-        <HabitForm onSubmit = {(title, description, cue, craving, response, reward) => {
-            addHabit(title, description, cue, craving, response, reward, () => navigation.navigate('Index'));
+        // <HabitForm onSubmit = {(title, description, cue, craving, response, reward) => {
+        //     addHabit(title, description, cue, craving, response, reward, () => navigation.navigate('Index'));
+        // }}/>
+
+        <HabitForm onSubmit = {(formdata) => {
+            addHabit(formdata, () => navigation.navigate('Index'));
         }}/>
 
     );

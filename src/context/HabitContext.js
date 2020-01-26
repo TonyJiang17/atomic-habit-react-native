@@ -26,8 +26,14 @@ const habitReducer = (state, action) => {
 };
 
 const addHabit = (dispatch) => {
-    return async (title, description, cue, craving, response, reward, callback) => {
-        await habitRails.post('/habits', {title, description, cue, craving, response, reward});
+    // return async (title, description, cue, craving, response, reward, callback) => {
+    //     await habitRails.post('/habits', {title, description, cue, craving, response, reward});
+    //     if (callback){
+    //         callback();
+    //     }
+    // };
+    return async (formdata, callback) => {
+        await habitRails.post('/habits', formdata, {headers: {'Content-Type': 'multipart/form-data'}});
         if (callback){
             callback();
         }
@@ -35,13 +41,35 @@ const addHabit = (dispatch) => {
 };
 
 const editHabit = (dispatch) => {
-    return async (habit_id, title, description, cue, craving, response, reward, callback) => {
-        await habitRails.put(`/habits/${habit_id}`, {title, description, cue, craving, response, reward});
-        dispatch({type: 'edit_habit', payload: {title, description, cue, craving, response, reward}});
+    // return async (habit_id, title, description, cue, craving, response, reward, callback) => {
+    //     await habitRails.put(`/habits/${habit_id}`, {title, description, cue, craving, response, reward});
+    //     dispatch({type: 'edit_habit', payload: {title, description, cue, craving, response, reward}});
+    //     if (callback){
+    //         callback();
+    //     }
+    // }
+
+    return async (habit_id, formdata, callback) => {
+        await habitRails.put(`/habits/${habit_id}`, formdata);
+
+        const title = formdata.get('habit-title');
+        const description = formdata.get('habit-description');
+        const cue = formdata.get('habit-cue');
+        const response = formdata.get('habit-response');
+        const reward = formdata.get('habit-reward');
+        dispatch({type: 'edit_habit', payload: {
+            title, 
+            description, 
+            cue, 
+            craving, 
+            response, 
+            reward}});
+
         if (callback){
             callback();
         }
     }
+
 };
 
 const deleteHabit = (dispatch) => {
